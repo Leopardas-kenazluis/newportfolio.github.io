@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+  <link rel="stylesheet" href="style.css"> <!-- Link to the same CSS file -->
+</head>
+<body>
+    <header>
+      <div class="navbar"> <!-- Updated navbar to match the home and about pages -->
+        <img src="luguko.png" class="logo" alt="Logo"> <!-- Logo for consistency -->
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a class="highlight" href="contact.html">Contact</a></li> <!-- Current Page -->
+        </ul>
+      </div>
+    </header>
+
+    <!-- Contact Section with Integrated Form -->
+    <section class="contact-section">
+        <h2>Message Me</h2>
+        <form id="contactForm" class="contact-form" action="#" method="POST">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <input type="text" name="subject" placeholder="Subject" required>
+            <textarea name="message" placeholder="Message.." rows="5" required></textarea>
+            <button type="submit" class="btn-submit">Send message</button>
+        </form>
+    </section>
+
+    <footer>
+      <div class="socials">
+          <a href="#"><i class="fa fa-instagram" style="font-size:24px; color: white;"></i></a>
+          <a href="#"><i class="fa fa-linkedin" style="font-size:24px; color: white;"></i></a>
+          <a href="#"><i class="fa fa-envelope" style="font-size:24px; color: white;"></i></a>
+      </div>
+      <P>Copyright &copy; 2023; Designed by <span class="designer">keanz luis Leopardas</span></P>
+    </footer>
+
+    <script>
+        // Event listener for form submission
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting the default way
+             // Get form data
+            var name = document.querySelector('input[name="name"]').value;
+            var email = document.querySelector('input[name="email"]').value;
+            var subject = document.querySelector('input[name="subject"]').value;
+            var message = document.querySelector('textarea[name="message"]').value;
+
+            // Construct the mailto link
+            var mailtoLink = 'mailto:kenazleopardas4@gmail.com?subject=' + encodeURIComponent(subject) +
+                             '&body=' + encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
+            // Redirect to the mailto link
+            window.location.href = mailtoLink; // This will open the default email client with pre-filled data
+        });
+    </script>
+
+</body>
+</html>
